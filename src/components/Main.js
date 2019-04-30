@@ -8,10 +8,31 @@ class Main extends React.Component {
     this.state = {
       data: todosData,
     }
+    this.handleClick = this.handleClick.bind(this);
+  }
+        // Обновите состояние так, чтобы у элемента с заданным id свойство 
+        // completed поменялось бы c false на true (или наоборот).
+        // Помните о том, что предыдущую версию состоянию менять не следует.
+        // Вместо этого нужно вернуть новую версию состояния, содержащую изменения.
+        // (Подумайте о том, как для этого использовать метод массивов map.)
+  handleClick(id) {
+    console.log("change: "+ id);
+    this.setState(
+      prevState => {
+        return {
+          data: prevState.data.map(todo => {
+            if(todo.id === id) {
+              todo.completed = !todo.completed; 
+            }
+            return todo;
+        })
+      }
+    }
+    );
   }
 
   render() {
-    todosItem = this.state.data.map(todo => <TodoItem todoItem={todo} key={todo.id} />)
+    const todosItem = this.state.data.map(todo => <TodoItem todoItem={todo} key={todo.id} handleChange={this.handleClick} />)
 
     const style = {
       fontSize: 30,
