@@ -1,4 +1,5 @@
 import React from 'react';
+import Counter from './Counter';
 
 function Footer() {
   const style = {
@@ -8,6 +9,7 @@ function Footer() {
   return(
     <div>
       <p style={style}>Footer component</p>
+      <Counter />
     </div>
   );
 }

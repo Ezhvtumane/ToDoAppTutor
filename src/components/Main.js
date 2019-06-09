@@ -11,7 +11,7 @@ class Main extends React.Component {
   }
 
   render() {
-    todosItem = this.state.data.map(todo => <TodoItem todoItem={todo} key={todo.id} />)
+    const todosItem = this.state.data.map(todo => <TodoItem todoItem={todo} key={todo.id} />)
 
     const style = {
       fontSize: 30,
